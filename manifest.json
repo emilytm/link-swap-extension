@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "version": "1.0",
+    "name": "LinkSwap",
+    "content_scripts":[
+        {
+            "matches": ["https://*/*"],
+            "js": ["index.js"]
+        }
+    ],
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": "logo.png"
+    }
+}
