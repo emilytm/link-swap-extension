@@ -8,6 +8,13 @@
             "js": ["index.js"]
         }
     ],
+    "permissions": [
+        "activeTab", "tabs"
+    ],
+    "host_permissions": ["https://*/*"],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' ;"
+    },
     "action": {
         "default_popup": "index.html",
         "default_icon": "logo.png"
