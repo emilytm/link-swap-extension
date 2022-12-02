@@ -1,6 +1,17 @@
 const lightning = "lightning.force."
 const classic = "my.salesforce."
 
+document.addEventListener('DOMContentLoaded', function() {
+    const linksList = document.querySelectorAll("a[href*='lightning.force.']")
+    linksList.forEach(link => {
+        link.href = link.href.replace(lightning,classic)
+    })
+})
+
+
+
+/*
+
 //let btnEl = document.getElementById("go-btn")
 //btnEl.addEventListener("click",fixlinks())
 
@@ -13,7 +24,7 @@ function fixlinks() {
             link.setAttribute('href',betterLink)
         }
     }
-    */
+    
    const linksList = document.querySelectorAll("a[href*='lightning.force.']")
    for (let badLink of linksList) {
         var replaceLink = badLink.href.replace('lightning.force.', 'my.salesforce.')
