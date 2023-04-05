@@ -1,6 +1,11 @@
 const lightning = "lightning.force."
 const classic = "my.salesforce."
 
+document.addEventListener('submit',() => {
+    console.log(document.getElementById('link-to-replace').value)
+    console.log(document.getElementById('replacement-link').value)
+})
+
 document.addEventListener('DOMContentLoaded', function() {
     const linksList = document.querySelectorAll("a[href*='lightning.force.']")
     linksList.forEach(link => {
