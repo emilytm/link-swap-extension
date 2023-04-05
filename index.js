@@ -1,7 +1,7 @@
 const lightning = "lightning.force."
 const classic = "my.salesforce."
 
-document.addEventListener('submit',() => {
+document.addEventListener('submit',function(){
     console.log(document.getElementById('link-to-replace').value)
     console.log(document.getElementById('replacement-link').value)
 })
