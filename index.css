@@ -1,15 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&family=Work+Sans&display=swap');
 
 body {
-    background-color: #009cd9;
+    background-color: #FFF;
     text-align: center;
     min-width: 300px;
+    color: #318ffb;
 }
 
-h1, h2, h3, p, a {
-    color: whitesmoke;
-    font-family: 'Kanit', Helvetica, sans-serif;
-    font-weight: 300;
+h1 {
+    font-family: 'Staatliches','Trebuchet MS',Arial, Helvetica, sans-serif;
+}
+
+h2, h3, p, a {
+    font-family: 'Work Sans', Helvetica, sans-serif;
 }
 
 .linkdisplay {
@@ -20,19 +23,9 @@ h1, h2, h3, p, a {
     margin-right: auto;
 }
 
-#bad-link {
-    color: sandybrown;
-    font-weight: 500;
-}
-
-#good-link {
-    color: chartreuse;
-    font-weight: 500;
-}
-
 button {
-    background-color: whitesmoke;
-    color: #009cd9;
+    background-color: #318ffb;
+    color: #fff;
     border-radius: 4px;
     border: none;
     width: 70px;
@@ -41,8 +34,8 @@ button {
 }
 
 button:hover{
-    background-color: chartreuse;
+    background-color: #1773dd;
 }
 button:active{
-    background-color: springgreen;
+    background-color: #054791;
 }
