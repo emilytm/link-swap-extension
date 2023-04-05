@@ -1,9 +1,24 @@
 const lightning = "lightning.force."
 const classic = "my.salesforce."
 
-document.addEventListener('submit',function(){
-    console.log(document.getElementById('link-to-replace').value)
-    console.log(document.getElementById('replacement-link').value)
+let linkToReplace = document.getElementById('link-to-replace').value
+let replacementLink = document.getElementById('replacement-link').value
+
+document.addEventListener('submit',function(e){
+    e.preventDefault()
+    if (linkToReplace.length > 0) {
+        if (replacementLink.length > 0) {
+            console.log(`user wants to replace ${linkToReplace} with ${replacementLink}`)
+        } else {
+            console.log(`user wants to replace ${linkToReplace} with nothing`)
+        }
+    } else {
+        console.log(`no user input`)
+    }
+})
+
+document.getElementById('link-inputs').addEventListener('change',function(e){
+    console.log(e)
 })
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -13,7 +28,18 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 })
 
+/*
 
+Nothing to start
+Input a link segment to replace
+Input the segment to replace it with
+Submit
+Indicate that it is swapping those links
+Give the option to pause
+When form is updated, give option to confirm changes
+When paused, give option to start back up
+
+*/
 
 /*
 
