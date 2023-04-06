@@ -1,8 +1,12 @@
-const lightning = "lightning.force."
-const classic = "my.salesforce."
 
 let linkToReplace = document.getElementById('link-to-replace').value
 let replacementLink = document.getElementById('replacement-link').value
+
+let playPauseIcon = document.getElementById('play-pause-icon')
+let pauseIcon = 'pause_circle'
+let playIcon = 'play_circle'
+
+let isActive = false;
 
 document.addEventListener('submit',function(e){
     e.preventDefault()
@@ -22,10 +26,22 @@ document.getElementById('link-inputs').addEventListener('change',function(e){
 })
 
 document.addEventListener('DOMContentLoaded', function() {
-    const linksList = document.querySelectorAll("a[href*='lightning.force.']")
+    const linksList = document.querySelectorAll(`a[href*='${linkToReplace}']`)
     linksList.forEach(link => {
-        link.href = link.href.replace(lightning,classic)
+        link.href = link.href.replace(linkToReplace,replacementLink)
     })
+})
+
+document.addEventListener('click', function(e) {
+    if(e.target.id === 'play-pause-btn') {
+        isActive = !isActive
+        playPauseIcon.textContent === playIcon ?
+            playPauseIcon.textContent = pauseIcon :
+            playPauseIcon.textContent = playIcon
+/*         playPauseBtn.innerHTML === playIcon ? 
+            playPauseBtn.innerHTML = pauseIcon :
+            playPauseBtn.innerHTML = playIcon */
+    }
 })
 
 /*
