@@ -12,7 +12,13 @@ const inputs = document.getElementById('link-inputs')
 
 document.addEventListener('submit',function(e){
     e.preventDefault()
+
+    chrome.runtime.sendMessage({ action: "toggleLinkReplacementState" }, function (response) {
+        console.log('toggled linkReplacementState')
+    })
+
     switchLinks()
+
 })
 
 inputs.addEventListener('input',function(e){
@@ -49,11 +55,12 @@ document.addEventListener('click', function(e) {
 })
 
 function switchLinks() {
-    if(isActive){
-        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, {action: "replaceLinks", linkToReplace: linkToReplace, replacementLink: replacementLink});
-        });
-    };
+    setTimeout(
+        function() {
+            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                chrome.tabs.sendMessage(tabs[0].id, {action: "replaceLinks", linkToReplace: linkToReplace, replacementLink: replacementLink});
+            });
+        }, 1000)
 };
 
 

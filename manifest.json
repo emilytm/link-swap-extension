@@ -2,22 +2,25 @@
     "manifest_version": 3,
     "version": "1.0",
     "name": "LinkSwap",
+    "description": "Swap substrings in on-page links",
     "content_scripts":[
         {
             "matches": ["<all_urls>"],
-            "js": ["contentScript.js"],
-            "run_at":"document_start"
+            "js": ["contentScript.js"]
         }
     ],
     "permissions": [
-        "activeTab", "tabs"
+        "activeTab", "tabs","storage"
     ],
     "host_permissions": ["https://*/*"],
     "content_security_policy": {
         "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' ;"
     },
     "action": {
-        "default_popup": "index.html",
-        "default_icon": "logo.png"
+        "default_popup": "popup.html",
+        "default_icon": "logo-blue.png"
+    },
+    "background": {
+        "service_worker": "background.js"
     }
 }
