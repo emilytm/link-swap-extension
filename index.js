@@ -8,41 +8,46 @@ let playIcon = 'play_circle'
 
 let isActive = false;
 
+const inputs = document.getElementById('link-inputs') 
+
 document.addEventListener('submit',function(e){
     e.preventDefault()
-    if (linkToReplace.length > 0) {
-        if (replacementLink.length > 0) {
-            console.log(`user wants to replace ${linkToReplace} with ${replacementLink}`)
-        } else {
-            console.log(`user wants to replace ${linkToReplace} with nothing`)
-        }
-    } else {
-        console.log(`no user input`)
+    swapLinks()
+})
+
+inputs.addEventListener('input',function(e){
+    linkToReplace = document.getElementById('link-to-replace').value
+    replacementLink = document.getElementById('replacement-link').value
+    swapLinks()
+})
+
+document.addEventListener('DOMContentLoaded', swapLinks)
+
+
+function swapLinks(){
+    if(isActive){
+        console.log(`Searching for all links on this page that contain the substring ${linkToReplace}`)
+        let linksList = document.querySelectorAll(`a[href*='${linkToReplace}']`)
+        console.log(linksList)
+        linksList.forEach(link => {
+            link.href = link.href.replace(linkToReplace,replacementLink)
+        })
     }
-})
-
-document.getElementById('link-inputs').addEventListener('change',function(e){
-    console.log(e)
-})
-
-document.addEventListener('DOMContentLoaded', function() {
-    const linksList = document.querySelectorAll(`a[href*='${linkToReplace}']`)
-    linksList.forEach(link => {
-        link.href = link.href.replace(linkToReplace,replacementLink)
-    })
-})
+}
 
 document.addEventListener('click', function(e) {
+    console.log(`LinkSwap is ${isActive ? 'running' : 'not running'}`)
+    console.log(`The ID of the item clicked is ${e.target.id}`)
     if(e.target.id === 'play-pause-btn') {
         isActive = !isActive
-        playPauseIcon.textContent === playIcon ?
+        swapLinks()
+        console.log(isActive)
+        isActive ? 
             playPauseIcon.textContent = pauseIcon :
             playPauseIcon.textContent = playIcon
-/*         playPauseBtn.innerHTML === playIcon ? 
-            playPauseBtn.innerHTML = pauseIcon :
-            playPauseBtn.innerHTML = playIcon */
     }
 })
+
 
 /*
 
