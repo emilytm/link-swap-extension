@@ -12,13 +12,13 @@ const inputs = document.getElementById('link-inputs')
 
 document.addEventListener('submit',function(e){
     e.preventDefault()
-    swapLinks()
+    switchLinks()
 })
 
 inputs.addEventListener('input',function(e){
     linkToReplace = document.getElementById('link-to-replace').value
     replacementLink = document.getElementById('replacement-link').value
-    swapLinks()
+    switchLinks()
 })
 
 document.addEventListener('DOMContentLoaded', swapLinks)
@@ -40,13 +40,21 @@ document.addEventListener('click', function(e) {
     console.log(`The ID of the item clicked is ${e.target.id}`)
     if(e.target.id === 'play-pause-btn') {
         isActive = !isActive
-        swapLinks()
+        switchLinks()
         console.log(isActive)
         isActive ? 
             playPauseIcon.textContent = pauseIcon :
             playPauseIcon.textContent = playIcon
     }
 })
+
+function switchLinks() {
+    if(isActive){
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {action: "replaceLinks", linkToReplace: linkToReplace, replacementLink: replacementLink});
+        });
+    };
+};
 
 
 /*
