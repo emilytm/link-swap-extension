@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "version": "1.0",
+    "version": "0.0.0.1",
     "name": "LinkSwap",
     "description": "Swap substrings in on-page links",
     "content_scripts":[
