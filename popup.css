@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Staatliches&family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap');
 
 body {
     background-color: #FFF;
@@ -6,9 +6,12 @@ body {
     min-width: 300px;
     max-width: 450px;
     color: #318ffb;
-    font-family: 'Staatliches','Trebuchet MS',Arial, Helvetica, sans-serif;
+    font-family: 'Roboto',Arial, Helvetica, sans-serif;
 }
 
+h2 {
+    font-size: small;
+}
 /* h1 {
     font-family: 'Staatliches','Trebuchet MS',Arial, Helvetica, sans-serif;
 } */
@@ -50,7 +53,7 @@ button:active{
 } */
 
 input {
-    font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
 .stop-btn {
